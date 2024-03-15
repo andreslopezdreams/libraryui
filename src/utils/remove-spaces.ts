@@ -1,0 +1,1 @@
+export const removeSpaces = (item: string) => item.trim()

@@ -1,0 +1,1 @@
+export const duplicateWord = (item: string) => `${item} ${item}`
