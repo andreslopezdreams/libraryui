@@ -1,29 +1,25 @@
-import { LitElement, html } from 'lit'
-import { customElement, property } from 'lit/decorators.js'
+import type { Reactive } from 'minze' 
+import { MinzeElement } from 'minze'
 
-@customElement('my-element')
-export class MyElement extends LitElement {
-  @property({ type: Number })
-  public count = 0
+export interface MyElement { 
+  count: number 
+} 
 
-  render() {
-    return html`
-      <h1>Contador</h1>
-      <div class="card">
-        <button @click=${this.#onClick} part="button">
-          count is ${this.count}
-        </button>
-      </div>
-    `
+export class MyElement extends MinzeElement {
+  reactive: Reactive = [['count', 0]]
+
+  increaseCount = () => this.count++
+
+  get doubledCount() {
+    return this.count * 2
   }
 
-  #onClick() {
-    this.count++
-  }
-}
-
-declare global {
-  interface HTMLElementTagNameMap {
-    'my-element': MyElement
-  }
+  html = () => `
+    <div>
+      <h2>Web Component</h2>
+      <button on:click="increaseCount">
+        Contador duplicado por 2 es: ${this.doubledCount}
+      </button>
+    </div>
+  `
 }

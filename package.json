@@ -2,7 +2,7 @@
   "main": "index.js",
   "name": "libraryui",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,7 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "lit": "^3.1.2"
+    "lit": "^3.1.2",
+    "minze": "^1.10.1"
   },
   "devDependencies": {
     "typescript": "^5.2.2",
